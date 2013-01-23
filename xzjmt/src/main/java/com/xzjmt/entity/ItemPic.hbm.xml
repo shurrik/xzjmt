@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapping file for Group.java
+-->
+<hibernate-mapping>
+    <class name="com.xzjmt.entity.ItemPic" table="xz_item_pic" catalog="xzjmt">
+ 
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="itemId" type="java.lang.Integer">
+            <column name="itemId" length="19" not-null="true">
+                <comment>商品Id</comment>
+            </column>
+        </property>        
+        <property name="picUrl" type="java.lang.String">
+            <column name="pic_url" length="200">
+                <comment>图片地址</comment>
+            </column>
+        </property>
+        <property name="picUrlSmall" type="java.lang.String">
+            <column name="pic_url_small" length="200">
+                <comment>小图片地址</comment>
+            </column>
+        </property>        
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

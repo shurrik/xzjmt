@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.xzjmt.entity.Message" table="xz_message" catalog="xzjmt">
+    
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="title" length="50">
+                <comment>标题</comment>
+            </column>
+        </property>        
+        <property name="content" type="java.lang.String">
+            <column name="content" length="800">
+                <comment>内容</comment>
+            </column>
+        </property>
+        <property name="sender" type="java.lang.Integer">
+            <column name="sender" length="20">
+                <comment>发送者Id</comment>
+            </column>
+        </property>
+        <property name="receiver" type="java.lang.Integer">
+            <column name="receiver" length="20" not-null="true">
+                <comment>接收者Id</comment>
+            </column>
+        </property>
+        <property name="senderEmail" type="java.lang.String">
+            <column name="sender_email" length="50">
+                <comment>发送者邮箱</comment>
+            </column>
+        </property>
+        <property name="receiverEmail" type="java.lang.String">
+            <column name="receiver_email" length="50">
+                <comment>接收者邮箱</comment>
+            </column>
+        </property>
+        <property name="senderName" type="java.lang.String">
+            <column name="sender_name" length="50">
+                <comment>发送者昵称</comment>
+            </column>
+        </property>
+        <property name="receiverName" type="java.lang.String">
+            <column name="receiver_name" length="50">
+                <comment>接收者昵称</comment>
+            </column>
+        </property>        
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="readDate" type="java.util.Date">
+            <column name="read_date" length="19">
+                <comment>阅读时间</comment>
+            </column>
+        </property>        
+        <property name="readFlag" type="java.lang.Boolean" >
+            <column name="read_flag" sql-type="tinyint" default="0">
+                <comment>是否已读</comment>
+            </column>
+        </property>                                                
+    </class>
+</hibernate-mapping>

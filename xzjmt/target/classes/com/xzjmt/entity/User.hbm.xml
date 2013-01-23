@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapping file for Group.java
+-->
+<hibernate-mapping>
+    <class name="com.xzjmt.entity.User" table="xz_user" catalog="xzjmt">
+ 
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="nickName" type="java.lang.String">
+            <column name="nick_name" length="50">
+                <comment>昵称</comment>
+            </column>
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="50">
+                <comment>邮箱</comment>
+            </column>
+        </property>
+        <property name="passwd" type="java.lang.String">
+            <column name="passwd" length="50">
+                <comment>密码</comment>
+            </column>
+        </property>                
+        <property name="avatar" type="java.lang.String">
+            <column name="avatar" length="200">
+                <comment>头像地址</comment>
+            </column>
+        </property>
+        <property name="mobile" type="java.lang.String">
+            <column name="mobile" length="11">
+                <comment>手机</comment>
+            </column>
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="qq" length="15">
+                <comment>qq号</comment>
+            </column>
+        </property>
+        <property name="registerDate" type="java.util.Date">
+            <column name="register_date" length="19">
+                <comment>注册时间</comment>
+            </column>
+        </property>        
+        <property name="lastIp" type="java.lang.String">
+            <column name="last_ip" length="15">
+                <comment>最后访问IP</comment>
+            </column>
+        </property>
+        <property name="lastVisit" type="java.util.Date">
+            <column name="last_visit" length="19">
+                <comment>最后访问时间</comment>
+            </column>
+        </property>
+        <property name="cityId" type="java.lang.Integer">
+            <column name="city_id" length="10">
+                <comment>城市ID</comment>
+            </column>
+        </property>        
+        <property name="salt" type="java.lang.String">
+            <column name="salt" length="6">
+                <comment>密码盐</comment>
+            </column>
+        </property>     
+        <property name="activeCode" type="java.lang.String">
+            <column name="active_code" length="200">
+                <comment>激活码</comment>
+            </column>
+        </property>
+        <property name="locked" type="java.lang.Boolean" >
+            <column name="locked" sql-type="tinyint" default="0">
+                <comment>是否锁定</comment>
+            </column>
+        </property>
+        <property name="actived" type="java.lang.Boolean" >
+            <column name="actived" sql-type="tinyint" default="0">
+                <comment>是否激活</comment>
+            </column>
+        </property>                
+        <property name="userType">
+			<column name="user_type" length="20"/>
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.xzjmt.common.util.enumeration.UserType</param> 
+				<!-- 12表示数据库保存的是enum的name -->
+				<param name="type">12</param> 
+			</type> 
+		</property>
+        <property name="intro" type="java.lang.String">
+            <column name="intro" length="500">
+                <comment>介绍</comment>
+            </column>
+        </property>		                                                   
+    </class>
+</hibernate-mapping>

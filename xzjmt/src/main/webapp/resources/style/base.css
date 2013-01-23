@@ -1,0 +1,114 @@
+
+/* Tweak navbar brand link to be super sleek
+-------------------------------------------------- */
+.nav .people {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+}
+
+
+.navbar .nav > li > img {
+float: none;
+padding: 8px 0px 7px;
+text-decoration: none;
+text-shadow: 0 1px 0 white;
+}
+
+/* Footer
+-------------------------------------------------- */
+.footer {
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  border-top: 1px solid #e5e5e5;
+}
+
+section {
+padding-top: 10px;
+}
+
+/*-----clear------*/
+.blank {clear:both; font-size:1px;height:10px;margin:0 auto;padding:0px;}
+.clear {clear: both; display: block;font: 0px/0px sans-serif;}
+
+.e {
+float: left;
+position: relative;
+display: inline;
+}
+
+.e div {
+    visibility: hidden;
+}
+
+.e:hover div {
+    visibility: visible;
+}
+
+.e .bar {
+padding-top: 5px;	
+padding-left: 8px;	
+height: 40px;
+width: 212px;
+bottom: 0;
+left: 0;
+background-image: url('../img/hover.png');
+}
+
+
+
+.e .hover {
+color: white;
+position: absolute;
+z-index: 3000;
+}
+
+.e .hover .title a {
+font: 15px Arial,Helvetica,Verdana,sans-serif;	
+color: white;
+}
+
+.e .hover .info a {
+font: 12px Arial,Helvetica,Verdana,sans-serif;	
+color: #ccc;
+}
+
+
+.controls .row {
+margin-bottom: 20px;
+}
+
+.controls .row .span4 {
+width: 231px;
+}
+
+.bottom_20 .row-fluid {
+margin-bottom: 20px;
+}
+
+.form-horizontal .read{
+padding-top:5px
+}
+
+.width_100
+{
+	width:150px;
+}
+
+.follow > li > a {
+/*   padding-top: 8px;
+  padding-bottom: 8px; */
+  margin-top: 0px;
+  margin-bottom: 2px;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.nav_avatar
+{
+	width:25px;
+	heigth:25px;
+}
+

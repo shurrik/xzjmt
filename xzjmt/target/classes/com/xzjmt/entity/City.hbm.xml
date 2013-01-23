@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 
+    Mapping file for Group.java
+-->
+<hibernate-mapping>
+    <class name="com.xzjmt.entity.City" table="xz_city" catalog="xzjmt">
+    
+        <id name="cityId" type="java.lang.Integer">
+            <column name="city_id" />
+            <generator class="identity" />
+        </id>
+        <property name="cityName" type="java.lang.String">
+            <column name="city_name" length="20">
+                <comment>城市名</comment>
+            </column>
+        </property>
+        <property name="ipName" type="java.lang.String">
+            <column name="ip_name" length="20">
+                <comment>ip城市名</comment>
+            </column>
+        </property>        
+    </class>
+</hibernate-mapping>
