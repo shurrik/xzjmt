@@ -28,9 +28,9 @@
 			      <tr>
 			        <td>${message_index+1}</td>
 			        <#if sendbox>
-			        	<td>${(message.receiverName )!}</td>			        	
+			        	<td><a href="<@p.userLink userId=(message.receiver)!/>">${(message.receiverName)!}</a></td>			        	
 			        <#else>
-			        	<td>${(message.senderName )!}</td>
+			        	<td><a href="<@p.userLink userId=(message.sender)!/>">${(message.senderName )!}</a></td>
 			        </#if>	
 			        <td><a href="${wwwroot}/self/message/${(message.id)!}">${(message.title)!}</a></td>
 			        <td>${(message.createDate?string('yyyy-MM-dd HH:mm:ss'))!}</td>

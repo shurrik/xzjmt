@@ -4,36 +4,42 @@
   <fieldset>
 		<legend></legend>
 		<div class="blank"></div>
-		<div class="control-group">
-		  <label class="control-label" for="nickName">收信人：</label>
-		  <div class="controls">
-		  	<div class="read">
-		  		${(message.senderName)!}
-		  	</div>
-		  </div>
-		</div>
-		<div class="control-group">
-		  <label class="control-label" for="title">标题：</label>
-		  <div class="controls">
-		    <input type="text" class="text" id="title" name="title">
-		  </div>
-		</div>	
-		<div class="control-group">
-        	<label class="control-label" for="content">内容</label>
-            <div class="controls">
-              <textarea class="input-xlarge" id="content" name="content" rows="7" >
-              
-              
--------------------------------
-${(message.content)!}
-              </textarea>
-            </div>
-        </div>					
-	
-		<div class="form-actions">
-            <a class="btn btn-primary">发送</a>
-        </div>
-        
+		<div class="row">
+			<div class="span8">
+				<div class="control-group">
+				  <label class="control-label" for="nickName">收信人：</label>
+				  <div class="controls">
+				  	<div class="read">
+				  		${(message.senderName)!}
+				  	</div>
+				  </div>
+				</div>
+				<div class="control-group">
+				  <label class="control-label" for="title">标题：</label>
+				  <div class="controls">
+				    <input type="text" class="text" id="title" name="title" required maxLength="50">
+				  </div>
+				</div>	
+				<div class="control-group">
+		        	<label class="control-label" for="content">内容(最多800字)：</label>
+		            <div class="controls">
+		              <textarea class="input-xlarge" id="content" name="content" rows="7" required maxLength="800">
+		              
+		              
+		-------------------------------
+		${(message.content)!}
+		              </textarea>
+		            </div>
+		        </div>	
+			
+				<div class="form-actions">
+		            <a class="btn btn-primary">发送</a>
+		        </div>
+	      </div>
+	    	<div class="span4">
+	    		<a href="${wwwroot}/self/message/list">&gt;回我的邮箱</a>
+	    	</div>
+	</div>         
   </fieldset>
 </form>
 <script>
@@ -42,6 +48,7 @@ ${(message.content)!}
 			$('#pageForm').submit();
 		});
     });
+	$("#pageForm").validate();    
 </script>      				
 </@override>
 <@extends name="../../include/base.ftl" />

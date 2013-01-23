@@ -9,6 +9,7 @@
 
     <!-- Le styles -->
     <link href="${cssroot}/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="${jsroot}/jquery.validate.js"></script>    
     <style type="text/css">
       body {
         padding-top: 40px;
@@ -49,18 +50,23 @@
 
     <div class="container">
 
-      <form action="${wwwroot}/authenticate" class="form-signin" method="post">
+      <form id="loginForm" action="${wwwroot}/authenticate" class="form-signin" method="post">
         <h2 class="form-signin-heading">登录闲置姐妹淘</h2>
-        <input name="username" type="text" class="input-block-level" placeholder="邮箱/昵称">
-        <input name="password" type="password" class="input-block-level" placeholder="密码">
+        <input name="username" type="text" class="input-block-level" placeholder="邮箱/昵称" required>
+        <input name="password" type="password" class="input-block-level" placeholder="密码" required>
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> 记住我
         </label>
+        
         <button class="btn btn-large btn-primary" type="submit">登录</button>
       </form>
 
     </div> <!-- /container -->
-
+<script type="text/javascript">
+$().ready(function() {
+	$("#loginForm").validate();
+});
+<script>
 
   </body>
 </html>

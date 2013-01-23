@@ -20,7 +20,9 @@
 <@block name="jslib">  
 	<script type="text/javascript" src="${jsroot}/jquery-1.7.min.js"></script>
 	<script type="text/javascript" src="${jsroot}/bootstrap.min.js"></script>
-	<script type="text/javascript" src="${jsroot}/common.js"></script>	
+	<script type="text/javascript" src="${jsroot}/common.js"></script>
+	<script type="text/javascript" src="${jsroot}/jquery.validate.js"></script>
+	<script type="text/javascript" src="${jsroot}/messages_zh.js"></script>			
 </@block>
 </head>
   <body data-spy="scroll" data-target=".subnav" data-offset="50" screen_capture_injected="true">
@@ -58,8 +60,8 @@
 		        </ul> 				
 			<#else>
 				<form id="loginForm" action="${wwwroot}/authenticate" class="navbar-form pull-right" method="post">
-				  账号：<input name="username" type="text" class="span2" placeholder="邮箱/昵称">
-				  密码：<input name="password" type="password" class="span2">
+				  账号：<input name="username" type="text" class="span2" placeholder="邮箱/昵称" required>
+				  密码：<input name="password" type="password" class="span2" required>
 					<a href="javascript:$('#loginForm').submit();" class="btn" >登录</a>
 					<a href="${wwwroot}/reg" class="btn">注册</a>
 				</form>
@@ -84,4 +86,9 @@
 	<#-- 页面主体 -->
 	<@block name="body">
 	</@block>
+<script type="text/javascript">
+$().ready(function() {
+	$("#loginForm").validate();
+});
+</script>	
 <#include "footer.ftl" />

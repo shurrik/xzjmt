@@ -62,6 +62,10 @@ public class ItemMng {
 	
 	public Map<String,Item> getMapByIds(List<Integer> ids)
 	{
+		if(ids.size()==0)
+		{
+			return null;
+		}
 		List<Item> items = this.getListByIds(ids);
 		return this.getMap(items);
 	}

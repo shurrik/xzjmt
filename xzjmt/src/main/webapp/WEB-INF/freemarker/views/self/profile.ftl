@@ -57,7 +57,7 @@
 		<div class="control-group">
 		  <label class="control-label" for="nickName">手机：</label>
 		  <div class="controls">
-		    <input type="text" class="input" id="mobile" name="mobile" value="${(user.mobile)!}">
+		    <input type="text" minlength="11" maxlength="11" class="input digits" id="mobile" name="mobile" value="${(user.mobile)!}">
 		  </div>
 		</div>
 		<div class="control-group">
@@ -70,7 +70,7 @@
 		    <label class="control-label" for="cityId">所在城市</label>
             <div class="controls">
               <select id="cityId" name="cityId">
-                <option>请选择</option>
+                <option value="">请选择</option>
                 <#list citys as city>
                 	<option value="${(city.cityId)!}" <#if user.cityId??&user.cityId=city.cityId>selected</#if>>${(city.cityName)!}</option>                	
                 </#list>
@@ -189,7 +189,7 @@ jQuery(function($){
 		Jc($('#target'));
 	}	
 	
-		
+	$("#pageForm").validate();	
 });
 
 
