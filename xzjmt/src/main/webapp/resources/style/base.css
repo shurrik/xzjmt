@@ -112,3 +112,14 @@ padding-top:5px
 	heigth:25px;
 }
 
+label.error 
+{
+	color:#d14;
+}
+
+#login_dialog
+{
+	width:300px;
+	left:57%;
+}
+

@@ -28,7 +28,7 @@
 	      	</div>
 	      	<div class="row-fluid ">
 	      		<div class="span10">
-	      			<@p.city_name cityId=(user.cityId)!/>
+	      			<i class="icon-map-marker"></i><@p.city_name cityId=(user.cityId)!/>
 	      		</div>
 	      	</div>	      	
 	      </div>

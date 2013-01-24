@@ -1,4 +1,3 @@
-
 function showAlert(msg,timeout)
 {
 	if(timeout==undefined)
@@ -13,4 +12,13 @@ function showAlert(msg,timeout)
 function closeAlert()
 {
 	$('#alert').fadeOut(1000);
+}
+
+function popLogin()
+{
+	$('#login_dialog').modal({
+	    backdrop:false,
+	    keyboard:true,
+	    show:true
+	});
 }

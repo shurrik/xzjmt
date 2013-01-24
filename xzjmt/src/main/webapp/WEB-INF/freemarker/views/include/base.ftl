@@ -91,4 +91,5 @@ $().ready(function() {
 	$("#loginForm").validate();
 });
 </script>	
+<#include "login_dialog.ftl" />
 <#include "footer.ftl" />
