@@ -22,3 +22,7 @@ function popLogin()
 	    show:true
 	});
 }
+
+/*function ajaxAuth()
+{
+}*/

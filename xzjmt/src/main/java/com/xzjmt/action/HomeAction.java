@@ -20,9 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xzjmt.entity.City;
 import com.xzjmt.entity.User;
@@ -137,8 +139,17 @@ public class HomeAction extends BaseAction{
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/shirologin", method = RequestMethod.GET)
+	public String shiroLogin(HttpServletRequest request) {
+		String retUrl = request.getHeader("Referer");  
+		
+		System.out.println(retUrl);
+		return "redirect:/login";
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
+		
 		return "login";
 	}
 	
@@ -150,6 +161,26 @@ public class HomeAction extends BaseAction{
 		return "changecity";
 	}	
 	
-	
+	@RequestMapping(value = "/ajaxauth", method = RequestMethod.POST)
+	@ResponseBody
+	public String ajaxAuth(@RequestParam String username,@RequestParam String password, String returnUrl, HttpServletRequest request,HttpServletResponse response,ModelMap model) throws Exception {
+		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+		token.setRememberMe(true);
+		Subject currentUser = SecurityUtils.getSubject();
+		try{
+			currentUser.login(token);
+			User user = (User)currentUser.getPrincipal();
+			currentUser.getSession().setAttribute("user", user);
+		}catch(InvalidAccountException e) {
+			return "用户名不能为空";
+		}catch(UnknownAccountException e){
+			return "此帐号不存在";
+		}catch(IncorrectCredentialsException e){
+			return "用户名或密码不正确。请重新输入";
+		}catch(LockedAccountException e) {
+			return "您的帐号已被锁定，请联系管理员";
+		}
+		return SUCC;
+	}
 	
 }
