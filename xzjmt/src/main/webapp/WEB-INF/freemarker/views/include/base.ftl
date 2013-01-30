@@ -22,7 +22,8 @@
 	<script type="text/javascript" src="${jsroot}/bootstrap.min.js"></script>
 	<script type="text/javascript" src="${jsroot}/common.js"></script>
 	<script type="text/javascript" src="${jsroot}/jquery.validate.js"></script>
-	<script type="text/javascript" src="${jsroot}/messages_zh.js"></script>			
+	<script type="text/javascript" src="${jsroot}/messages_zh.js"></script>	
+	<script type="text/javascript" src="${jsroot}/sso.js"></script>			
 </@block>
 </head>
   <body data-spy="scroll" data-target=".subnav" data-offset="50" screen_capture_injected="true">

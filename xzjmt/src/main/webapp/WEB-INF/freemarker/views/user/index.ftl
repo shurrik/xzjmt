@@ -69,8 +69,7 @@
 <script>
 function followUser(userId)
 {
-	popLogin();
-<#--	
+	//popLogin();
 	$.ajax({  
 		type: "POST",  
 		url: "${wwwroot}/self/follow/"+userId+"?random="+Math.random(),
@@ -98,7 +97,6 @@ function followUser(userId)
 			showAlert('连接超时');
 		}
 	});
-	-->
 }
 
 function collect(itemId)

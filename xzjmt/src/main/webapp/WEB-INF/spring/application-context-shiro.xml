@@ -26,14 +26,22 @@
 		<!-- <property name="loginUrl" value="/shirologin" /> -->		
 		<property name="successUrl" value="/self" />
 		<property name="unauthorizedUrl" value="/login" />
+		<property name="filters">
+			<util:map>
+				<!-- 添加casFilter到shiroFilter -->
+				<entry key="xzAuthC" value-ref="ksdAuthC" />
+			</util:map>
+		</property>		
 		<property name="filterChainDefinitions">
 		    <value>
 		    <!-- /login = authc -->
-		    /self/** = authc	
+		    /self/** = xzAuthC	
 		    /** = anon
 		 </value>
 		</property>
 	</bean>
+
+	<bean id="ksdAuthC" class="com.xzjmt.shiro.KsdFormAuthenticationFilter"></bean>
 
 	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager" />
 
