@@ -1,6 +1,7 @@
 package com.xzjmt.manager;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
@@ -100,6 +101,13 @@ public class UserMng {
 	{
 		String sql = "UPDATE xz_user m SET m.avatar=? WHERE m.user_id=?";
 		int n = userDAO.update(sql, new Object [] {avatar, userId});
+		return n > 0;
+	}
+	
+	public boolean updateAfterLogin(Integer userId,String lastIp,Date lastVisit)
+	{
+		String sql = "UPDATE xz_user m SET m.last_ip=?, m.last_visit=? WHERE m.user_id=?";
+		int n = userDAO.update(sql, new Object [] {lastIp,DateUtils.formatDatetime(lastVisit),userId});
 		return n > 0;
 	}
 }

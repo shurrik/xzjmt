@@ -7,23 +7,18 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.xzjmt.common.util.RequestUtils;
-import com.xzjmt.dao.UserDAO;
 import com.xzjmt.entity.User;
+import com.xzjmt.manager.UserMng;
 
 public class KsdSecurityManager extends DefaultWebSecurityManager {
-/*	@Autowired
-	private MemberMongoDAO memberMongoDao;
-	@Autowired
-	private MemberDAO memberDao;*/
 	
 	@Autowired
-	private UserDAO userDAO;
+	private UserMng userMng;
 
 	@Override
 	protected void onSuccessfulLogin(AuthenticationToken token,AuthenticationInfo info, Subject subject) {
@@ -33,8 +28,9 @@ public class KsdSecurityManager extends DefaultWebSecurityManager {
 			Integer userId = user.getUserId();
 			String sessionId = (String) subject.getSession().getId();
 			ServletRequestAttributes request = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-			String lastip = RequestUtils.getIpAddr(request.getRequest());
-			Date lastvisit = new Date();
+			String lastIp = RequestUtils.getIpAddr(request.getRequest());
+			Date lastVisit = new Date();
+			userMng.updateAfterLogin(userId,lastIp,lastVisit);
 			//memberDao.updateLoginStatus(memberId, sessionId, lastip, lastvisit);
 			
 /*			if(StringUtils.isNotBlank(member.getMongoId())) {
