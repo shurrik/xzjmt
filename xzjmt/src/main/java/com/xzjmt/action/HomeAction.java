@@ -80,7 +80,7 @@ public class HomeAction extends BaseAction{
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public String authenticate(@RequestParam String username,@RequestParam String password, String returnUrl, HttpServletRequest request,HttpServletResponse response,ModelMap model) throws IOException {
 		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
-		token.setRememberMe(true);
+		token.setRememberMe(false);
 		Subject currentUser = SecurityUtils.getSubject();
 		String inputForward = "login";
 		try{
@@ -165,7 +165,7 @@ public class HomeAction extends BaseAction{
 	@ResponseBody
 	public String ajaxAuth(@RequestParam String username,@RequestParam String password, String returnUrl, HttpServletRequest request,HttpServletResponse response,ModelMap model) throws Exception {
 		UsernamePasswordToken token = new UsernamePasswordToken(username,password);
-		token.setRememberMe(true);
+		token.setRememberMe(false);
 		Subject currentUser = SecurityUtils.getSubject();
 		try{
 			currentUser.login(token);
