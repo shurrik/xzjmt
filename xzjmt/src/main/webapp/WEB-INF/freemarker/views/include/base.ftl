@@ -63,7 +63,7 @@
 				<form id="loginForm" action="${wwwroot}/authenticate" class="navbar-form pull-right" method="post">
 				  账号：<input name="username" type="text" class="span2" placeholder="邮箱/昵称" required>
 				  密码：<input name="password" type="password" class="span2" required>
-					<a href="javascript:$('#loginForm').submit();" class="btn" >登录</a>
+					<input type="submit" name="submit" value="登录" />
 					<a href="${wwwroot}/reg" class="btn">注册</a>
 				</form>
 			</#if>
@@ -87,10 +87,5 @@
 	<#-- 页面主体 -->
 	<@block name="body">
 	</@block>
-<script type="text/javascript">
-$().ready(function() {
-	$("#loginForm").validate();
-});
-</script>	
 <#include "login_dialog.ftl" />
 <#include "footer.ftl" />
