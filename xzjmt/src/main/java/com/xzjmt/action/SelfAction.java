@@ -88,6 +88,26 @@ public class SelfAction extends BaseAction{
 		return "self/item";
 	}
 	
+	@RequestMapping("/self/item/list")
+	public String listItem(Integer pageNum,Model model,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		
+		User user = getCurrentUser();
+		EntityView ev = new EntityView();
+		ev.add(Restrictions.eq("userId", user.getUserId()));
+		PageContext<Item> pageCtx = itemMng.queryUsePage(ev, pageNum, 6);
+		model.addAttribute("pageCtx", pageCtx);
+		return "self/item_list";
+	}
+	
+	
+	@RequestMapping("/self/item/delete/{id}")
+	public String deleteItem(@PathVariable("id") Integer itemId,Model model,HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		itemMng.deleteById(itemId);
+		return "redirect:/self/item/list";
+	}
+	
 	@RequestMapping("/self/item/add")
 	public String addItem(Item item,Model model,HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

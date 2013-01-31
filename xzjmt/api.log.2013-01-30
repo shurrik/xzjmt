@@ -1,0 +1,1 @@
+2013-01-30 10:24:20,470:WARN qtp22152912-22 org.springframework.web.servlet.PageNotFound - No mapping found for HTTP request with URI [/self/item/] in DispatcherServlet with name 'appServlet'

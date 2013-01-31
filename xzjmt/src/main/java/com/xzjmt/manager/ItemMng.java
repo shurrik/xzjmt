@@ -38,6 +38,13 @@ public class ItemMng {
 		return itemDAO.findById(id);
 	}
 	
+	public void deleteById(Integer id)
+	{
+		EntityView ev = new EntityView();
+		ev.add(Restrictions.eq("itemId", id));
+		itemDAO.delete(ev);
+	}
+	
 	public List<Item> findByUserId(Integer userId)
 	{
 		return itemDAO.findByProperty("userId", userId);
@@ -69,4 +76,31 @@ public class ItemMng {
 		List<Item> items = this.getListByIds(ids);
 		return this.getMap(items);
 	}
+	
+
+	
+	//出手
+	public void toggleSold(Integer itemId)
+	{
+		updateSoldStatus(itemId,!this.hasSold(itemId));
+	}
+	
+	public boolean updateSoldStatus(Integer itemId,Boolean sold)
+	{
+		int soldVal = sold==true?1:0;
+		String sql = "UPDATE xz_item m SET m.sold=? WHERE m.user_id=?";
+		int n = itemDAO.update(sql, new Object [] {soldVal, itemId});
+		return n > 0;
+	}
+	
+	
+	public Boolean hasSold(Integer itemId)
+	{
+		EntityView ev = new EntityView();
+		ev.add(Restrictions.eq("itemId", itemId));
+		ev.add(Restrictions.eq("sold", true));
+		return itemDAO.exist(ev);
+	}	
+	
+	
 }

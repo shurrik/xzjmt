@@ -21,6 +21,7 @@ public class Item extends BaseEntity implements java.io.Serializable{
 	private String cityName;
 	private Date createDate;
 	private Date updateDate;
+	private Boolean sold; //已出手
 	public Integer getItemId() {
 		return itemId;
 	}
@@ -110,5 +111,11 @@ public class Item extends BaseEntity implements java.io.Serializable{
 	}
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+	public Boolean getSold() {
+		return sold;
+	}
+	public void setSold(Boolean sold) {
+		this.sold = sold;
 	}
 }

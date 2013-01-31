@@ -2,7 +2,15 @@
 <div class="blank"></div>
 <section>
   <div class="row">
-    <div class="span8 <#if (pageCtx.itemList?size>0)>well</#if>">
+    <div class="span8">
+    
+	<ul class="breadcrumb">
+	  <li>
+	  	我的闲置
+	  </li>
+	  <li class="nav pull-right"><a href="${wwwroot}/self/item/list">编辑</a></li>
+	</ul>    
+    
 	<#list pageCtx.itemList as item>
 		<#if item_index==0||(item_index)%3==0>
 			<div class="row-fluid">			

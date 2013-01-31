@@ -80,6 +80,11 @@
             <column name="update_date" length="19">
                 <comment>更新时间</comment>
             </column>
-        </property>                                                                                
+        </property> 
+        <property name="sold" type="java.lang.Boolean" >
+            <column name="sold" sql-type="tinyint" default="0">
+                <comment>是否已出手</comment>
+            </column>
+        </property>                                                                                       
     </class>
 </hibernate-mapping>
