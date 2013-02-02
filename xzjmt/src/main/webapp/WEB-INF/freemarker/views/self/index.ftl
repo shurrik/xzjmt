@@ -1,6 +1,5 @@
 <@override name="body">
 <div class="blank"></div>
-<section>
   <div class="row">
     <div class="span8">
     
@@ -64,7 +63,6 @@
     </div>    
   </div>
 
-</section>
 
 </@override>
 <@extends name="../include/base.ftl" />

@@ -153,15 +153,19 @@ public class SelfAction extends BaseAction{
 		
 		
 		Integer userId = Integer.parseInt(request.getParameter("userId"));
+		User user = userMng.findById(userId);
 		String mobile = request.getParameter("mobile");
 		String qq = request.getParameter("qq");
 		String intro = request.getParameter("intro");
-		Integer cityId = Integer.parseInt(request.getParameter("cityId"));
-		
-		User user = userMng.findById(userId);
+		String cid = request.getParameter("cityId");
+		if(StringUtils.isBlank(cid)&&!cid.equals(""))
+		{
+			Integer cityId = Integer.parseInt(cid);
+			user.setCityId(cityId);
+		}
+
 		user.setMobile(mobile);
 		user.setQq(qq);
-		user.setCityId(cityId);
 		user.setIntro(intro);
 		userMng.saveOrUpdate(user);
 		

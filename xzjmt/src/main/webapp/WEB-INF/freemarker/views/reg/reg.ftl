@@ -51,7 +51,7 @@
 
       <form action="${wwwroot}/reg/email" class="form-signin" method="post">
         <h2 class="form-signin-heading">闲置姐妹淘注册</h2>
-        <input name="to" type="text" class="input-block-level" placeholder="输入你的注册邮箱">
+        <input name="to" type="text" class="input-block-level" placeholder="输入你的注册邮箱" required>
         <button class="btn btn-large btn-primary" type="submit">发送</button>
       </form>
 

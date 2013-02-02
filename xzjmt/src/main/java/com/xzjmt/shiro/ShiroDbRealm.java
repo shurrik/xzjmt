@@ -5,8 +5,8 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.util.StringUtils;
 import org.slf4j.Logger;
@@ -56,7 +56,11 @@ public class ShiroDbRealm extends JdbcRealm{
             user.setPasswd(null);
             user.setSalt(null);
             info = new SimpleAuthenticationInfo(user, credential.toCharArray(), realmName);
-        } catch (Exception e) {
+        } 
+        catch(UnknownAccountException e) {
+			throw e;
+        }
+        catch (Exception e) {
             final String message = "There was an error while authenticating user [" + username + "]";
             if (log.isErrorEnabled()) {
                 log.error(message, e);

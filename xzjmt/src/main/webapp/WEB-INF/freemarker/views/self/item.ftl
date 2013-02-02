@@ -7,50 +7,6 @@
 	  	<script type="text/javascript" src="${jsroot}/jquery.uploadify.min.js"></script>
 </@override>	
 <@override name="body">
-<#--
-<div class="blank"></div>
-<section>
-  <div class="row">
-    <div class="span8 well">
-		<div class="row-fluid">
-			<div class="span12"><a href="#">我的闲置</a></div>
-		</div>
-    </div>
-    <div class="span3 well">
-		<div class="row-fluid ">
-	      <div class="span6"><img src="${imgroot}/avatar_large.jpg"/></div>
-	      <div class="span1"></div>
-	      <div class="span5">
-	      	<div class="row-fluid ">
-	      		<div class="span5">
-	      			<h5>shurrik</h5>
-	      		</div>
-	      	</div>
-	      	<div class="row-fluid ">
-	      		<div class="span5">
-	      			<img src="${imgroot}/red-heart.gif"/>
-	      		</div>
-	      	</div>	      	
-	      </div>
-	    </div>
-	    <div class="blank">
-	    </div>
-		<div class="row-fluid ">
-	      <div class="span6"><a href="#"><i class="icon-envelope"></i>我的消息</a></div>
-	      <div class="span6"><a href="#"><i class="icon-cog"></i>我的设置</a></div>
-	    </div>
-		<div class="row-fluid ">
-	      <div class="span6"><a href="#"><i class="icon-file"></i>发布闲置</a></div>
-	      <div class="span6"><a href="#"><i class="icon-heart"></i>我的收藏</a></div>
-	    </div>	 
-		<div class="row-fluid ">
-	      <div class="span12">一件东西代表某一特定的产品或服务，它可能是食品、电器、软件、美容化妆用品、汽车等等。豆瓣将会帮助你发现喜欢的东西，并结识同好。</div>
-	    </div>	    	    	    
-    </div>    
-  </div>
-
-</section>
--->
 
 <form id="itemForm" action="${wwwroot}/self/item/add" class="form-horizontal" method="post">
 	<input name="picCover" id="picCover" type="hidden">

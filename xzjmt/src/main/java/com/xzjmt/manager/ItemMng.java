@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xzjmt.common.dao.EntityView;
 import com.xzjmt.common.page.PageContext;
 import com.xzjmt.dao.ItemDAO;
+import com.xzjmt.dao.ItemPicDAO;
 import com.xzjmt.entity.Item;
 
 @Service
@@ -22,6 +23,8 @@ public class ItemMng {
 
 	@Autowired
 	private ItemDAO itemDAO;
+	@Autowired
+	private ItemPicDAO itemPicDAO;
 	
 	public Integer add(Item item)
 	{
@@ -43,6 +46,7 @@ public class ItemMng {
 		EntityView ev = new EntityView();
 		ev.add(Restrictions.eq("itemId", id));
 		itemDAO.delete(ev);
+		itemPicDAO.delete(ev);
 	}
 	
 	public List<Item> findByUserId(Integer userId)
