@@ -470,9 +470,6 @@
 	<profiles>
 		<profile>
 			<id>development</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
 				<jdbc.url>jdbc:mysql://localhost:3306/xzjmt?characterEncoding=UTF-8&amp;autoReconnect=true</jdbc.url>
@@ -502,6 +499,40 @@
 			
 			</properties>
 		</profile>
+		<profile>
+			<id>production</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>			
+			<properties>
+				<jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+				<jdbc.url>jdbc:mysql://localhost:3306/xzjmt?characterEncoding=UTF-8&amp;autoReconnect=true</jdbc.url>
+				<jdbc.username>root</jdbc.username>
+				<jdbc.password>root</jdbc.password>
+				<jdbc.connectionProperties>useOldAliasMetadataBehavior=true</jdbc.connectionProperties>
+				
+				<system.host>www.xzjmt.me</system.host>
+				<system.port>80</system.port>
+				<system.wwwroot>http://${system.host}:${system.port}</system.wwwroot>
+				<system.imgroot>${system.wwwroot}/resources/img</system.imgroot>
+				<system.cssroot>${system.wwwroot}/resources/style</system.cssroot>
+				<system.jsroot>${system.wwwroot}/resources/js</system.jsroot>
+				<system.filesroot>ftp://192.168.1.195/</system.filesroot>
+				<!-- File Serevr -->
+				<filesserver.host>127.0.0.1</filesserver.host>
+				<filesserver.port>21</filesserver.port>
+				<filesserver.username>shurrik</filesserver.username>
+				<filesserver.password>1</filesserver.password>
+				<system.staticroot>http://192.168.1.195:8282</system.staticroot>
+				<system.staticpcroot>F:\xzjmt</system.staticpcroot>				
+<!-- 				<filesserver.host>v0.ftp.upyun.com</filesserver.host>
+				<filesserver.port>21</filesserver.port>
+				<filesserver.username>shurrik</filesserver.username>
+				<filesserver.password>82681966a</filesserver.password>
+				<system.staticroot>http://xzjmt.b0.upaiyun.com</system.staticroot> -->					
+			
+			</properties>
+		</profile>		
 	</profiles>						
 	<build>
 		<finalName>${project.artifactId}</finalName>
